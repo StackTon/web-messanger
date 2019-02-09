@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, Switch, withRouter } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Chat from './components/Chat/Chat';
 import Register from './components/Register/Register';
 import AllGroups from './components/AllGroups/AllGroups';

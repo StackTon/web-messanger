@@ -1,22 +1,7 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import socketIOClient from 'socket.io-client';
 import { connect } from 'react-redux';
 import { getAllMessagesAction, getLatestMessageAction } from '../../actions/chatActions';
-import NavBar from '../common/sideBar/NavBar';
-import SideBar from '../common/sideBar/SideBar';
-import styles from '../common/sideBar/styles';
-import PropTypes from 'prop-types';
-import withRoot from '../../withRoot';
-
-// material ui
-import Typography from '@material-ui/core/Typography';
-import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-
-
-import FormControl from '@material-ui/core/FormControl';
-import OutlinedInput from '@material-ui/core/OutlinedInput';
 
 class AllGroups extends Component {
 
@@ -38,14 +23,9 @@ class AllGroups extends Component {
 
 
     render() {
-        const { classes } = this.props; 
-
         return (
-            <div className={classes.root}>
-                <NavBar title="All chat" open={this.state.open} handleDrawerOpen={this.handleDrawerOpen} handleDrawerClose={this.handleDrawerClose} />
-                <SideBar open={this.state.open} handleDrawerOpen={this.handleDrawerOpen} handleDrawerClose={this.handleDrawerClose} />
-
-                <main className={classes.content}>
+            <div>
+                <main>
                     <h1>KIT</h1>
                 </main>
             </div>
@@ -67,8 +47,4 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-AllGroups.propTypes = {
-    classes: PropTypes.object.isRequired,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(withRoot(withStyles(styles)(AllGroups)));
+export default connect(mapStateToProps, mapDispatchToProps)(AllGroups);

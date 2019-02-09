@@ -1,21 +1,7 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import socketIOClient from 'socket.io-client';
 import { connect } from 'react-redux';
 import { getAllMessagesAction, getLatestMessageAction } from '../../actions/chatActions';
-import NavBar from '../common/sideBar/NavBar';
-import SideBar from '../common/sideBar/SideBar';
-import styles from '../common/sideBar/styles';
-import PropTypes from 'prop-types';
-import withRoot from '../../withRoot';
-
-// material ui
-import Typography from '@material-ui/core/Typography';
-import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import Paper from '@material-ui/core/Paper';
-import FormControl from '@material-ui/core/FormControl';
-import OutlinedInput from '@material-ui/core/OutlinedInput';
 
 class Chat extends Component {
 
@@ -87,22 +73,16 @@ class Chat extends Component {
 
 
     render() {
-        const { classes } = this.props;
-
         return (
-            <div className={classes.root}>
-                <NavBar title="All chat" open={this.state.open} handleDrawerOpen={this.handleDrawerOpen} handleDrawerClose={this.handleDrawerClose} />
-                <SideBar open={this.state.open} handleDrawerOpen={this.handleDrawerOpen} handleDrawerClose={this.handleDrawerClose} />
-
-                <main className={classes.content}>
-                    <div className={classes.appBarSpacer} />
-                    <Typography component="div" className={classes.chartContainer}>
+            <div>
+                <main>
+                    <div component="div">
                         <audio id="sound" controls src='./sounds/case-closed.mp3' type='audio/mpeg' ref='audio_tag' className="display-none" />
-                        <div className="messages-area">
+                        <div>
                             {this.props.groupMessages.messages ? this.props.groupMessages.messages.map(mess => {
                                 return (
-                                    <div key={mess._id} className={classes.messagePlace}>
-                                        <Paper className={(this.props.username === mess.from.username ? classes['my-message'] : classes['other-message']) + ' ' + classes.message}>
+                                    <div key={mess._id}>
+                                        <div>
                                             <div>
                                                 <div>
                                                     From: {mess.from.username}
@@ -111,27 +91,26 @@ class Chat extends Component {
                                                     {mess.content}
                                                 </div>
                                             </div>
-                                        </Paper>
+                                        </div>
                                     </div>
                                 )
                             }) : ''}
                         </div>
-                        <FormControl className={classes.formControl} variant="outlined">
-                            <OutlinedInput
+                        <form>
+                            <input
                                 id="component-outlined"
                                 name="content"
                                 value={this.state.content}
                                 onChange={this.onChangeHandler}
                                 labelWidth={this.labelRef ? this.labelRef.offsetWidth : 0}
-                                multiline={false}
-                                className={classes.formInput}
+                                
                             />
 
-                        </FormControl>
-                        <Button variant="contained" color="primary" className={classes.button} onClick={this.onSubmit}>
+                        </form>
+                        <button variant="contained" color="primary" onClick={this.onSubmit}>
                             Send
-                        </Button>
-                    </Typography>
+                        </button>
+                    </div>
                 </main>
             </div>
         )
@@ -152,8 +131,4 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-Chat.propTypes = {
-    classes: PropTypes.object.isRequired,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(withRoot(withStyles(styles)(Chat)));
+export default connect(mapStateToProps, mapDispatchToProps)(Chat);
