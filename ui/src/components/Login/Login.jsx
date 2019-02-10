@@ -46,11 +46,10 @@ class Login extends Component {
                 <form className="login-form">
                     <h2>Log in</h2>
                     <Input id="username" label="username" name="username" onChange={this.onChangeHandler} value={this.state.username} />
-                    <button
+                    <div
                         className="login-button"
-                        type="submit"
                         onClick={this.onSubmitNickname}
-                    >Sign in</button>
+                    >Sign in</div>
                 </form>
             </div>
         )

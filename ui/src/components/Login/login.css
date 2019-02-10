@@ -36,6 +36,7 @@
     margin-top: 30px;
     font-size: 20px;
     cursor: pointer;
+    user-select: none;
 }
 
 .login-button:hover {
@@ -47,7 +48,6 @@
     border: none;
     outline: none;
 }
-
 
 .login-button:active {
     transform: scale(0.98);

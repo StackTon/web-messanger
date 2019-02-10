@@ -75,43 +75,39 @@ class Chat extends Component {
     render() {
         return (
             <div>
-                <main>
-                    <div component="div">
-                        <audio id="sound" controls src='./sounds/case-closed.mp3' type='audio/mpeg' ref='audio_tag' className="display-none" />
-                        <div>
-                            {this.props.groupMessages.messages ? this.props.groupMessages.messages.map(mess => {
-                                return (
-                                    <div key={mess._id}>
+                <div component="div">
+                    <audio id="sound" controls src='./sounds/case-closed.mp3' type='audio/mpeg' ref='audio_tag' className="display-none" />
+                    <div>
+                        {this.props.groupMessages.messages ? this.props.groupMessages.messages.map(mess => {
+                            return (
+                                <div key={mess._id}>
+                                    <div>
                                         <div>
                                             <div>
-                                                <div>
-                                                    From: {mess.from.username}
-                                                </div>
-                                                <div>
-                                                    {mess.content}
-                                                </div>
+                                                From: {mess.from.username}
+                                            </div>
+                                            <div>
+                                                {mess.content}
                                             </div>
                                         </div>
                                     </div>
-                                )
-                            }) : ''}
-                        </div>
-                        <form>
-                            <input
-                                id="component-outlined"
-                                name="content"
-                                value={this.state.content}
-                                onChange={this.onChangeHandler}
-                                labelWidth={this.labelRef ? this.labelRef.offsetWidth : 0}
-                                
-                            />
-
-                        </form>
-                        <button variant="contained" color="primary" onClick={this.onSubmit}>
-                            Send
-                        </button>
+                                </div>
+                            )
+                        }) : ''}
                     </div>
-                </main>
+                    <form>
+                        <input
+                            id="component-outlined"
+                            name="content"
+                            value={this.state.content}
+                            onChange={this.onChangeHandler}
+                        />
+
+                    </form>
+                    <button variant="contained" color="primary" onClick={this.onSubmit}>
+                        Send
+                        </button>
+                </div>
             </div>
         )
     }
