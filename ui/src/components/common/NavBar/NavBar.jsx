@@ -11,11 +11,10 @@ export default class NavBar extends Component {
 
         //bind
         this.sideBarClick = this.sideBarClick.bind(this);
-
     }
 
     sideBarClick() {
-        this.setState({isOpen: !this.state.isOpen});
+        this.props.sideBarArrowClicked();
     }
 
 
@@ -26,7 +25,7 @@ export default class NavBar extends Component {
         }
         return (
             <nav>
-                <div className={(this.state.isOpen ? 'side-bar-open' : 'side-bar-close') + ' side-bar-icons'}>
+                <div className={(this.props.isOpen ? 'side-bar-open' : 'side-bar-close') + ' side-bar-icons'}>
                     <i className="fas fa-angle-double-left" onClick={this.sideBarClick}></i>
                     {/* <i className="fas fa-angle-double-right"></i> */}
                 </div>

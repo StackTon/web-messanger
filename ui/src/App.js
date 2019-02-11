@@ -8,21 +8,36 @@ import Navar from './components/common/NavBar/NavBar';
 import SideBar from './components/common/SideBar/SideBar';
 
 class App extends Component {
-  render() {
-    return (
-      <>
-        <Navar />
-        {/* <SideBar /> */}
-        <main className="App">
-          <Switch>
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/" component={Chat} />
-            <Route exact path="/allGroups" component={AllGroups} />
-          </Switch>
-        </main>
-      </>
-    );
-  }
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            isOpen: true
+        }
+
+        //bind
+        this.sideBarArrowClicked = this.sideBarArrowClicked.bind(this);
+    }
+
+    sideBarArrowClicked() {
+        this.setState({ isOpen: !this.state.isOpen });
+    }
+
+    render() {
+        return (
+            <>
+                <Navar sideBarArrowClicked={this.sideBarArrowClicked} isOpen={this.state.isOpen} />
+                <SideBar sideBarArrowClicked={this.sideBarArrowClicked} isOpen={this.state.isOpen} />
+                <main className="App">
+                    <Switch>
+                        <Route exact path="/login" component={Login} />
+                        <Route exact path="/" component={Chat} />
+                        <Route exact path="/allGroups" component={AllGroups} />
+                    </Switch>
+                </main>
+            </>
+        );
+    }
 }
 
 export default App;

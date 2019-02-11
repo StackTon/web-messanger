@@ -8,24 +8,14 @@ let users = ['Pesho', 'Gosho', 'Marti', 'Mitko', 'Maria', 'Penka']
 export default class SideBar extends Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            open: true
-        }
     }
 
     render() {
         return (
-            <aside className="side-bar">
+            <aside className={(this.props.isOpen ? 'side-bar-open' : 'side-bar-close') + ' side-bar'}>
                 {users.map((name) => {
-                    return <UserBox name={name} />
+                    return <UserBox name={name} isOpen={this.props.isOpen} />
                 })}
-
-
-                <div>
-                    <i className="fas fa-angle-double-left"></i>
-                    {/* <i className="fas fa-angle-double-right"></i> */}
-                </div>
             </aside>
         )
     }

@@ -3,10 +3,12 @@ import './userBox.css';
 
 export default (props) => {
     return (
-        <div>
+        <div className="user-box">
             {/* <i className="fas fa-users"></i> */}
-            <i className="fas fa-user"></i>
-            <div>{props.name}</div>
+            <i className={(props.isOpen ? '' : 'side-bar-tooltip') + ' fas fa-user' }  >
+                {props.isOpen ? '' : <span class="side-bar-tooltiptext">{props.name}</span>}
+            </i>
+            {props.isOpen ? <div className="username">{props.name}</div> : ''}
         </div>
 
     )

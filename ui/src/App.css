@@ -3,6 +3,11 @@
 body {
   font-family: 'Open Sans', sans-serif;
   text-align: center;
+  height:100vh;
+}
+
+main {
+    flex: 1;
 }
 
 .wrapper {

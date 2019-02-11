@@ -1,3 +1,19 @@
 .side-bar {
     float: left;
+    height: 92vh;
+    border-right: 1px solid #dddddd;
+}
+
+.side-bar-open {
+    min-width: 15%;
+}
+
+.side-bar-close .fas {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.side-bar-close {
+    min-width: 5%;
 }

@@ -3,13 +3,12 @@ nav {
 }
 
 .side-bar-icons {
-    min-width: 15%;
     border-bottom: 1px solid #dddddd;
 }
 
 .side-bar-icons .fas {
     font-size: 40px;
-    color: #bbbbbb;
+    color: #aaaaaa;
     display: flex;
     justify-content: flex-end;
     margin-top: 16px;
@@ -21,15 +20,21 @@ nav {
     cursor: pointer;
 }
 
-.side-bar-open {
-
+nav .side-bar-open {
+    min-width: 15%;
 }
 
-.side-bar-close {
-    min-width: 4%;
+nav .side-bar-close {
+    min-width: 5%;
     transform: rotate(180deg);
     border: none;
     border-top: 1px solid #dddddd;
+}
+
+nav .side-bar-close .fas {
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
 .nav-bar {
@@ -54,6 +59,6 @@ nav {
     color: black;
 }
 
-.nav-bar li:active, nav .fas:active {
+.nav-bar li:active, nav .fas:active, nav .far:active {
     transform: scale(0.98);
 }
