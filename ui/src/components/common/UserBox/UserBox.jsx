@@ -6,7 +6,7 @@ export default (props) => {
         <div className="user-box">
             {/* <i className="fas fa-users"></i> */}
             <i className={(props.isOpen ? '' : 'side-bar-tooltip') + ' fas fa-user' }  >
-                {props.isOpen ? '' : <span class="side-bar-tooltiptext">{props.name}</span>}
+                {props.isOpen ? '' : <span className="side-bar-tooltiptext">{props.name}</span>}
             </i>
             {props.isOpen ? <div className="username">{props.name}</div> : ''}
         </div>
