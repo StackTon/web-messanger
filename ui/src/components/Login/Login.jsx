@@ -41,11 +41,11 @@ class Login extends Component {
             return <Redirect to="/" />;
         }
         return (
-            <div className="form-wrapper" >
+            <div className="login-wrapper" >
 
                 <form className="login-form">
                     <h2>Log in</h2>
-                    <Input id="username" label="username" name="username" onChange={this.onChangeHandler} value={this.state.username} />
+                    <Input label="username" name="username" onChange={this.onChangeHandler} value={this.state.username} />
                     <div
                         className="login-button"
                         onClick={this.onSubmitNickname}
