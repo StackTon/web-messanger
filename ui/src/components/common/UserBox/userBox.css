@@ -27,7 +27,6 @@
 }
 
 .user-box .username {
-    font-size: 20px;
     margin: 0 30px;
     color: #aaaaaa;
     user-select: none;
@@ -51,7 +50,6 @@
     z-index: 1;
     top: -5px;
     left: 110%;
-    font-size: 20px;
     user-select: none;
 }
 

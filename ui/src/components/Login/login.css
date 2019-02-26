@@ -4,7 +4,6 @@
     min-height: 100vh;
     justify-content: center;
     background: #41B3A3;
-    font-size: 20px;
 }
 
 .login-form {
@@ -24,7 +23,6 @@
     border: none;
     background: #eeeeee;
     padding: 10px 20px;
-    font-size: 20px;
 }
 
 .login-button {
@@ -34,7 +32,6 @@
     padding: 12px 0;
     min-width: 100%;
     margin-top: 30px;
-    font-size: 20px;
     cursor: pointer;
     user-select: none;
 }

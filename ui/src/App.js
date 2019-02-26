@@ -27,14 +27,16 @@ class App extends Component {
         return (
             <>
                 <Navar sideBarArrowClicked={this.sideBarArrowClicked} isOpen={this.state.isOpen} />
-                <SideBar sideBarArrowClicked={this.sideBarArrowClicked} isOpen={this.state.isOpen} />
-                <main className="App">
-                    <Switch>
-                        <Route exact path="/login" component={Login} />
-                        <Route exact path="/" component={Chat} />
-                        <Route exact path="/allGroups" component={AllGroups} />
-                    </Switch>
-                </main>
+                <div className="wrapper">
+                    <SideBar sideBarArrowClicked={this.sideBarArrowClicked} isOpen={this.state.isOpen} />
+                    <main>
+                        <Switch>
+                            <Route exact path="/login" component={Login} />
+                            <Route exact path="/" component={Chat} />
+                            <Route exact path="/allGroups" component={AllGroups} />
+                        </Switch>
+                    </main>
+                </div>
             </>
         );
     }

@@ -14,7 +14,6 @@
     flex: 1;
     border: none;
     border-top: 1px solid #dddddd;
-    font-size: 20px;
     padding: 20px;
     position: sticky;
     bottom: 0px;
@@ -28,7 +27,6 @@
     min-width: 10%;
     border: none;
     user-select: none;
-    font-size: 20px;
     color: white;
     background: #C38D9E;
     cursor: pointer;
