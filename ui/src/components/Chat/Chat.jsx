@@ -79,17 +79,34 @@ class Chat extends Component {
                 <audio id="sound" controls src='./sounds/case-closed.mp3' type='audio/mpeg' ref='audio_tag' />
                 <div className="messages">
                     {this.props.groupMessages.messages ? this.props.groupMessages.messages.map(mess => {
-                        return (
-                            <div className="my-message message" key={mess._id}>
-                                <i className='fas fa-user'></i>
-                                <div>
-                                    From: {mess.from.username}
+                        if (this.props.username === mess.from.username) {
+                            return (
+                                <div className="my-message message" key={mess._id}>
+                                    <div className="message-content">
+                                        {mess.content}
+                                    </div>
                                 </div>
-                                <div>
-                                    {mess.content}
-                                </div>
-                            </div>
-                        )
+                            );
+
+                        } else {
+                            return (
+                                <>
+                                    <div className="message-from">
+                                        {mess.from.username}
+                                    </div>
+                                    <div className="foregin-message message" key={mess._id}>
+
+                                        <i className='fas fa-user'></i>
+
+                                        <div className="message-content">
+                                            {mess.content}
+                                        </div>
+                                    </div>
+                                </>
+
+                            )
+                        }
+
                     }) : ''}
                 </div>
                 <form className="form-message">
