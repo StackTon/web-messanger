@@ -37,6 +37,11 @@ nav .side-bar-close .fas {
     align-content: center;
 }
 
+.nav-bar a {
+    text-decoration: none;
+    color: #888888;
+}
+
 .nav-bar {
     list-style-type: none;
     display: flex;
@@ -56,6 +61,10 @@ nav .side-bar-close .fas {
 
 .nav-bar li:hover {
     cursor: pointer;
+    color: black;
+}
+
+.nav-bar li:hover a {
     color: black;
 }
 

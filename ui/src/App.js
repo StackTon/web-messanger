@@ -3,9 +3,10 @@ import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import Chat from './components/Chat/Chat';
 import Login from './components/Login/Login';
-import AllGroups from './components/AllGroups/AllGroups';
 import Navar from './components/common/NavBar/NavBar';
 import SideBar from './components/common/SideBar/SideBar';
+import CreateGroup from './components/CreateGroup/CreateGroup';
+
 
 class App extends Component {
     constructor(props) {
@@ -33,7 +34,7 @@ class App extends Component {
                         <Switch>
                             <Route exact path="/login" component={Login} />
                             <Route exact path="/" component={Chat} />
-                            <Route exact path="/allGroups" component={AllGroups} />
+                            <Route exact path="/createGroup" component={CreateGroup} />
                         </Switch>
                     </main>
                 </div>

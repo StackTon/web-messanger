@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addNewNicknameAction } from '../../../actions/authActions';
 import { Redirect } from 'react-router';
+import { NavLink } from 'react-router-dom';
 import './navBar.css';
 
 class NavBar extends Component {
@@ -40,7 +41,9 @@ class NavBar extends Component {
                         {/* <i className="fas fa-angle-double-right"></i> */}
                     </div>
                     <ul className="nav-bar">
-                        <li>Create group</li>
+                        {/* TODO: Active link */}
+                        
+                        <li><NavLink exact to="/createGroup">Create Group</NavLink></li>
                         <li>Add Friends</li>
                         <li>Settings</li>
                         <li><i className="nav-icon fas fa-users"></i></li>
