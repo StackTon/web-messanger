@@ -11,12 +11,17 @@ function addNewNicknameSuccess(username) {
 export function addNewNicknameAction(username) {
     return async (dispatch) => {
         try {
-            const data = await addNewNickname(username);
-            dispatch(addNewNicknameSuccess(data.username));
+            console.log(username);
+            if(username !== '') {
+                const data = await addNewNickname(username);
+                dispatch(addNewNicknameSuccess(data.username));
+            } else {
+                console.log('here');
+                dispatch(addNewNicknameSuccess(''));
+            }
         }
         catch (err) {
             console.log(err);
         }
     }
 }
-

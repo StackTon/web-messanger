@@ -20,7 +20,7 @@
 }
 
 .messages {
-    height: 86.5vh;
+    height: 83.5vh;
     overflow-x: auto;
 }
 
@@ -49,7 +49,7 @@
 
 .form-message {
     display: flex;
-    height: 5vh;
+    height: 8vh;
 }
 
 .message {

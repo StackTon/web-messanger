@@ -51,6 +51,7 @@
     top: -5px;
     left: 110%;
     user-select: none;
+    font-size: 2rem;
 }
 
 .side-bar-tooltip .side-bar-tooltiptext::after {

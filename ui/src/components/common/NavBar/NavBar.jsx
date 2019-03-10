@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { addNewNicknameAction } from '../../../actions/authActions';
+import { Redirect } from 'react-router';
 import './navBar.css';
 
 class NavBar extends Component {
@@ -7,18 +9,29 @@ class NavBar extends Component {
         super(props);
 
         this.state = {
-            isOpen: true
+            isOpen: true,
+            redirectToLogin: false
         }
 
         //bind
         this.sideBarClick = this.sideBarClick.bind(this);
+        this.logout = this.logout.bind(this);
     }
 
     sideBarClick() {
         this.props.sideBarArrowClicked();
     }
 
+    logout() {
+        this.props.addNewNickname('');
+        this.setState({redirectToLogin: true});
+    }
+
     render() {
+        if (this.state.redirectToLogin) {
+            this.setState({redirectToLogin: false});
+            return <Redirect to="/login" />;
+        }
         if (this.props.username.length > 0) {
             return (
                 <nav>
@@ -33,7 +46,7 @@ class NavBar extends Component {
                         <li><i className="nav-icon fas fa-users"></i></li>
                         <li><i className="nav-icon far fa-lightbulb"></i></li>
                         {/* <li><i className="fas fa-lightbulb"></i></li> */}
-                        <li>Logout</li>
+                        <li onClick={this.logout}>Logout</li>
                     </ul>
                 </nav>
             )
@@ -50,4 +63,10 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps, null)(NavBar);
+function mapDispatch(dispatch) {
+    return {
+        addNewNickname: username => dispatch(addNewNicknameAction(username))
+    };
+}
+
+export default connect(mapStateToProps, mapDispatch)(NavBar);
