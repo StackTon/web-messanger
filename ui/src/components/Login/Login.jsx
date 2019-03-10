@@ -19,12 +19,6 @@ class Login extends Component {
         this.onSubmitNickname = this.onSubmitNickname.bind(this);
     }
 
-    componentDidMount() {
-        if (this.props.username) {
-            this.setState({ loggedIn: true });
-        }
-    }
-
     onChangeHandler(e) {
         this.setState({ [e.target.name]: e.target.value });
     }
