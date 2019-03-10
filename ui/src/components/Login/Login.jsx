@@ -19,6 +19,12 @@ class Login extends Component {
         this.onSubmitNickname = this.onSubmitNickname.bind(this);
     }
 
+    componentDidMount() {
+        if (this.props.username) {
+            this.setState({ loggedIn: true });
+        }
+    }
+
     onChangeHandler(e) {
         this.setState({ [e.target.name]: e.target.value });
     }
@@ -56,10 +62,16 @@ class Login extends Component {
     }
 }
 
+function mapStateToProps(state) {
+    return {
+        username: state.username
+    };
+}
+
 function mapDispatch(dispatch) {
     return {
         addNewNickname: username => dispatch(addNewNicknameAction(username))
     };
 }
 
-export default connect(null, mapDispatch)(Login);
+export default connect(mapStateToProps, mapDispatch)(Login);

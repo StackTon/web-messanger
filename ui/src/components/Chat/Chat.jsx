@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import socketIOClient from 'socket.io-client';
 import { connect } from 'react-redux';
 import { getAllMessagesAction, getLatestMessageAction } from '../../actions/chatActions';
+import { Redirect } from 'react-router';
 import './chat.css';
 
 class Chat extends Component {
@@ -11,7 +12,8 @@ class Chat extends Component {
 
         this.state = {
             content: '',
-            open: true
+            open: true,
+            loggedIn: false
         }
 
         // this.socket = socketIOClient('https://messagernodebackend.herokuapp.com')
@@ -25,6 +27,12 @@ class Chat extends Component {
     }
 
     componentDidMount() {
+        setTimeout(() => {
+            if (this.props.username === '') {
+                this.setState({ loggedIn: true });
+            }
+        }, 1000);
+        
         this.socket.on("allMessages", groupMessages => {
             this.props.getAllMessages(groupMessages);
         });
@@ -74,6 +82,9 @@ class Chat extends Component {
 
 
     render() {
+        if (this.state.loggedIn) {
+            return <Redirect to="/login" />;
+        }
         return (
             <div className="wapper-messages">
                 <audio id="sound" controls src='./sounds/case-closed.mp3' type='audio/mpeg' ref='audio_tag' />
@@ -119,10 +130,11 @@ class Chat extends Component {
                     />
                     <button className="send-button" onClick={this.onSubmit}>
                         Send
-                    </button>
+                        </button>
                 </form>
             </div>
         )
+
     }
 }
 
